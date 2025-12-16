@@ -31,3 +31,13 @@ sudo apt-get install -y kubelet kubeadm kubectl
 ```bash
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
+
+
+# Install Helm using snap
+```bash
+sudo snap install helm --classic
+
+# Verify installation
+helm version
+
+```
