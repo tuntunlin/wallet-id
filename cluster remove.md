@@ -60,3 +60,25 @@
   261  clear
   262  kubectl get pods -A
   263  kubectl get svc -A -o wide
+
+
+
+sudo systemctl stop rke2-server 2>/dev/null || sudo systemctl stop rke2-agent 2>/dev/null
+sudo /usr/local/bin/rke2-killall.sh
+sudo rm -rf /etc/rancher/rke2
+sudo rm -rf /var/lib/rancher/rke2
+sudo rm -rf /var/lib/kubelet
+sudo rm -rf /var/lib/cni
+sudo rm -rf /etc/cni
+sudo rm -rf /run/flannel
+sudo iptables -F
+sudo iptables -X
+sudo iptables -t nat -F
+sudo iptables -t nat -X
+sudo iptables -t mangle -F
+sudo iptables -t mangle -X
+sudo ip link delete cni0 2>/dev/null || true
+sudo ip link delete flannel.1 2>/dev/null || true
+sudo rm -f /usr/local/bin/rke2
+sudo rm -f /usr/local/bin/rke2-killall.sh
+sudo rm -f /usr/local/bin/rke2-uninstall.sh
