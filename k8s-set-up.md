@@ -97,6 +97,25 @@ ansible-playbook -i inventory.yaml rke2-playbook.yaml
 kubectl get nodes -A -o wide
 kubectl get svc -A
 
+```
+mkdir -p ~/.kube
+ls /tmp/rke2.yaml
+cat /tmp/rke2.yaml
+cp /tmp/rke2.yaml ~/.kube/rke2.yaml
+chmod 600 ~/.kube/rke2.yaml
+mv ~/.kube/rke2.yaml ~/.kube/config
+ls -la .kube/
+sudo chown walletvm:walletvm .kube/config
+ls -la .kube/
+sudo vi .kube/config
+kubectl get nodes -A
+sudo vi .kube/config (Input node1 IP)
+kubectl get nodes -A
+kubectl label node k8s-vm-04 node-role.kubernetes.io/worker=worker
+kubectl label node k8s-vm-05 node-role.kubernetes.io/worker=worker
+kubectl label node k8s-vm-06 node-role.kubernetes.io/worker=worker 
+```
+
 ### 5. Install rancher with cert-manager.
 Install cert-manager first
 ```sh
