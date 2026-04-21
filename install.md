@@ -1,3 +1,5 @@
+```sh
+
 ********************IWaltid Installation using Helm***************************************
 
 kubectl delete ns waltid
@@ -22,8 +24,8 @@ kubectl get pvc -A
         storage: 10Gi
   EOF
 
-
-
+```
+```sh
 ********************SSL Certificate Input***************************************
 
 kubectl create secret tls waltid-wildcard-tls \
@@ -65,6 +67,6 @@ kubectl edit ingress waltid-web-wallet-ingress -n waltid
     secretName: waltid-wildcard-tls
 
 ********************SSL Certificate Input***************************************
-
+```
 
 
